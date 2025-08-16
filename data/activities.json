@@ -63,7 +63,8 @@
                 "isPaid": true,
                 "includes": ["Bikes allowed in room"],
                 "mapLink": "https://maps.app.goo.gl/fN3LtbaQHU67GuKC7"
-            }
+            },
+            "notes":[ "https://www.hotel-bb.com/en/hotel/epernay" ]
         },
         {
             "id": "day2-hotel-checkout",
@@ -110,7 +111,11 @@
                 "isPaid": true,
                 "includes": ["Breakfast included"],
                 "mapLink": "https://maps.app.goo.gl/PGihD7pLFNxFH1x78"
-            }
+            },
+            "notes": [
+                "https://www.hoteloberland.com/en/"
+            ]
+
         },
         {
             "id": "day3-cycling-oz",
@@ -204,7 +209,8 @@
             },
             "notes": [
                 "2 nights, 1 room",
-                "View on Maps: https://maps.app.goo.gl/GkxrqQBD1QmTxDzr5"
+                "View on Maps: https://maps.app.goo.gl/GkxrqQBD1QmTxDzr5",
+                "https://www.hotel-cotebrune.fr/en/"
             ]
         },
         {
@@ -231,7 +237,8 @@
             "type": "dining",
             "title": "Venosc by cable car",
             "icon": "fa-utensils",
-            "notes": ["Le cours de la vie"]
+            "notes": ["Le cours de la vie",
+            "Cable Car: https://www.les2alpes.com/winter/offers/venosc-cabble-car-venosc-en-winter-3005535"]
         },
         {
             "id": "day6-cycling-chambon",
@@ -303,7 +310,8 @@
                 "mapLink": "https://maps.app.goo.gl/R5k7w2g5Q9Vigrvx7"
             },
             "notes": [
-                "2 rooms, 1 night"
+                "2 rooms, 1 night",
+                "https://www.hotel-bb.com/fr/hotel/dijon-nord-zenith"
             ]
         },
         {
@@ -330,7 +338,7 @@
             },
             "notes": [
                 "Leave by 9:00",
-                "Break @ Reims or St Quentin"
+                "Break @ Reims (https://maps.app.goo.gl/EHgU1NiLKuf4LdNf9) or St Quentin (https://maps.app.goo.gl/29Z8TDhGVQpeTYTB6)"
             ]
         },
         {
@@ -362,11 +370,7 @@
                 "duration": "3 hours 30 minutes",
                 "distance": "126 miles (203km)",
                 "mode": "drive"
-            },
-            "notes": [
-                "Leave by 9:00",
-                "Break @ Reims or St Quentin"
-            ]
+            }
         },
         {
             "id": "day8-arrive-home",
