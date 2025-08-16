@@ -46,13 +46,28 @@
 
                 <!-- Days -->
                 <template x-for="date in getUniqueDates()" :key="date">
-                    <div class="day">
-                        <div class="date-column">
-                            <div class="date-text" x-text="formatDate(date)"></div>
+                    <div class="day" :id="'day-' + date" :class="{ 'current-day': isCurrentDay(date) }">
+                        <div class="date-column" @click="toggleDay(date)" role="button">
+                            <div class="date-header">
+                                <div class="date-text" x-text="formatDate(date)"></div>
+                                <i class="fas" :class="isDayExpanded(date) ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+                            </div>
                         </div>
-                        <div class="content">
-                            <template x-for="activity in getDayActivities(date)" :key="activity.id">
-                                <div :class="'activity-block ' + activity.type">
+                        <div class="content position-relative">
+                            <template x-if="!isDayExpanded(date)">
+                                <!-- Expand button for collapsed state -->
+                                <div class="expand-button d-flex justify-content-center align-items-center p-3" 
+                                     @click="toggleDay(date)">
+                                    <button class="btn btn-light d-flex align-items-center gap-2">
+                                        <i class="fas fa-expand"></i>
+                                        Click to expand
+                                    </button>
+                                </div>
+                            </template>
+                            <!-- Day content -->
+                            <div x-show="isDayExpanded(date)" x-transition>
+                                <template x-for="activity in getDayActivities(date)" :key="activity.id">
+                                    <div :class="'activity-block ' + activity.type">
                                     <i :class="'fas ' + getActivityIcon(activity) + ' icon'"></i>
                                     <template x-if="activity.time">
                                         <span class="time" x-text="activity.time"></span>

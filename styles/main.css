@@ -58,19 +58,61 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.date-column:hover {
+    background: linear-gradient(45deg, #5a6fd6, #6842a3);
+}
+
+.date-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
 }
 
 .date-text {
-    transform: rotate(-90deg);
     font-weight: bold;
     font-size: 1.1em;
     text-align: center;
     white-space: nowrap;
 }
 
+.current-day .date-column {
+    background: linear-gradient(45deg, #4caf50, #45a049);
+}
+
 .content {
     flex: 1;
     padding: 20px;
+    position: relative;
+    min-height: 100px;
+}
+
+.expand-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.expand-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.expand-button .btn {
+    transition: transform 0.2s ease;
+}
+
+.expand-button:hover .btn {
+    transform: scale(1.05);
 }
 
 /* Activity block styles */
