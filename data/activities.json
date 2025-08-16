@@ -1,0 +1,380 @@
+{
+    "activities": [
+        {
+            "id": "day1-drive-to-folkstone",
+            "date": "2025-08-17",
+            "order": 1,
+            "type": "travel",
+            "time": "06:00",
+            "title": "Drive to Folkestone",
+            "icon": "fa-car",
+            "travel": {
+                "duration": "3 hours",
+                "mode": "car"
+            }
+        },
+        {
+            "id": "day1-channel-crossing",
+            "date": "2025-08-17",
+            "order": 2,
+            "type": "travel",
+            "time": "10:30",
+            "title": "Channel Crossing",
+            "icon": "fa-train",
+            "travel": {
+                "duration": "1 hour 41 minutes",
+                "mode": "train"
+            },
+            "notes": [
+                "Check-in 9:36 latest",
+                "Depart Folkestone 10:30",
+                "Arrive Calais 12:11"
+            ]
+        },
+        {
+            "id": "day1-drive-to-epernay",
+            "date": "2025-08-17",
+            "order": 3,
+            "type": "travel",
+            "time": "12:30",
+            "title": "Drive to Epernay",
+            "icon": "fa-car",
+            "travel": {
+                "duration": "3 hours 40 minutes",
+                "mode": "car",
+                "distance": "185 miles (298km)"
+            },
+            "notes": ["Leave 12:30 - Arrive 16:30"]
+            
+        },
+        {
+            "id": "day1-hotel-checkin",
+            "date": "2025-08-17",
+            "order": 4,
+            "type": "accommodation",
+            "time": "14:30",
+            "title": "Check-in B&B Hotel Epernay",
+            "icon": "fa-hotel",
+            "accommodation": {
+                "reference": "BB15030670",
+                "address": "2 Allee General Alberico Albricci, 51200 Epernay",
+                "checkInTime": "14:00",
+                "price": 156.50,
+                "isPaid": true,
+                "includes": ["Bikes allowed in room"],
+                "mapLink": "https://maps.app.goo.gl/fN3LtbaQHU67GuKC7"
+            }
+        },
+        {
+            "id": "day2-hotel-checkout",
+            "date": "2025-08-18",
+            "order": 1,
+            "type": "accommodation",
+            "time": "12:00",
+            "title": "Checkout B&B Epernay",
+            "icon": "fa-hotel",
+            "accommodation": {
+                "reference": "BB15030670",
+                "checkOut": "12:00"
+            }
+        },
+        {
+            "id": "day2-drive-to-oberland",
+            "date": "2025-08-18",
+            "order": 2,
+            "type": "travel",
+            "time": "09:00",
+            "title": "Drive to Oberland",
+            "icon": "fa-car",
+            "travel": {
+                "duration": "6-7 hours",
+                "mode": "drive"
+            },
+            "notes": [
+                "Leave 9:00 AM",
+                "Lunch stop 1.5hrs",
+                "Arrive Oberland 5:00 PM"
+            ]
+        },
+        {
+            "id": "day2-checkin-oberland",
+            "date": "2025-08-18",
+            "order": 3,
+            "type": "accommodation",
+            "title": "Check-in Oberland",
+            "icon": "fa-hotel",
+            "accommodation": {
+                "reference": "9014",
+                "address": "155 Av. de la Gare, 38520 Le Bourg-d'Oisans",
+                "price": 672.00,
+                "isPaid": true,
+                "includes": ["Breakfast included"],
+                "mapLink": "https://maps.app.goo.gl/PGihD7pLFNxFH1x78"
+            }
+        },
+        {
+            "id": "day3-cycling-oz",
+            "date": "2025-08-19",
+            "order": 1,
+            "type": "cycling",
+            "time": "09:00",
+            "title": "CYCLING: OZ 3300",
+            "icon": "fa-bicycle",
+            "cycling": {
+                "distance": 45,
+                "elevation": 729,
+                "routeLinks": [
+                    {
+                        "title": "The steep climb to Oz en Oisans",
+                        "url": "https://uk.bike-oisans.com/equipment/the-steep-climb-to-oz-en-oisans/",
+                        "icon": "fa-arrow-up-right-from-square"
+                    },
+                    {
+                        "title": "Garmin Course",
+                        "url": "https://connect.garmin.com/modern/course/392650695",
+                        "icon": "fa-garmin"
+                    }
+                ]
+            },
+            "notes": [
+                "Ride to start: 45 min",
+                "Distance: 45km • Elevation: 729m"
+            ]
+        },
+        {
+            "id": "day4-cycling-alpe",
+            "date": "2025-08-20",
+            "order": 1,
+            "type": "cycling",
+            "title": "CYCLING: Alpe d'Huez",
+            "icon": "fa-bicycle",
+            "cycling": {
+                "distance": 30,
+                "elevation": 1161,
+                "routeLinks": [
+                    {
+                        "title": "Alpe d'Huez",
+                        "url": "https://www.strava.com/routes/3387443945735939802",
+                        "icon": "fa-strava"
+                    }
+                ]
+            },
+            "notes": [
+                "\"La Monteé Mythique\"",
+                "Distance: 30km • Elevation: 1161m"
+            ]
+        },
+        {
+            "id": "day5-checkout-oberland",
+            "date": "2025-08-21",
+            "order": 1,
+            "time": "10:00",
+            "type": "accommodation",
+            "title": "Checkout Oberland",
+            "icon": "fa-hotel"
+        },
+        {
+            "id": "day5-drive-to-deux-alpes",
+            "date": "2025-08-21",
+            "order": 2,
+            "type": "travel",
+            "title": "Drive to Les Deux Alpes",
+            "icon": "fa-car",
+            "travel": {
+                "duration": "30 minutes",
+                "mode": "drive"
+            }
+        },
+        {
+            "id": "day5-checkin-cote-brune",
+            "date": "2025-08-21",
+            "order": 3,
+            "type": "accommodation",
+            "title": "Check-in Hotel Spa Cote Brune",
+            "icon": "fa-hotel",
+            "accommodation": {
+                "checkInTime": "15:00",
+                "reference": "SSRHV1",
+                "address": "6 rue des cotes Bruns, 38860 Les Deux Alpes",
+                "price": 676.50,
+                "isPaid": false,
+                "paidAmount": 198.00,
+                "balanceDue": 478.50,
+                "includes": ["Breakfast included"]
+            },
+            "notes": [
+                "2 nights, 1 room",
+                "View on Maps: https://maps.app.goo.gl/GkxrqQBD1QmTxDzr5"
+            ]
+        },
+        {
+            "id": "day5-cycling-deux-alpes",
+            "date": "2025-08-21",
+            "order": 4,
+            "type": "cycling",
+            "title": "CYCLING: Les 2 Alpes",
+            "icon": "fa-bicycle",
+            "cycling": {
+                "distance": 42,
+                "elevation": 1223,
+                "routeLinks": []
+            },
+            "notes": [
+                "\"Les Deux Alpes\"",
+                "Distance: 42km • Elevation: 1223m"
+            ]
+        },
+        {
+            "id": "day5-venosc",
+            "date": "2025-08-21",
+            "order": 5,
+            "type": "dining",
+            "title": "Venosc by cable car",
+            "icon": "fa-utensils",
+            "notes": ["Le cours de la vie"]
+        },
+        {
+            "id": "day6-cycling-chambon",
+            "date": "2025-08-22",
+            "order": 1,
+            "type": "cycling",
+            "title": "CYCLING: Lac du Chambon",
+            "icon": "fa-bicycle",
+            "cycling": {
+                "routeLinks": []
+            },
+            "dining": {
+                "restaurant": "La cabane au bord du lac Chambon"
+            }
+        },
+        {
+            "id": "day6-mont-de-lans",
+            "date": "2025-08-22",
+            "order": 2,
+            "type": "dining",
+            "title": "Mont de lans",
+            "icon": "fa-utensils",
+            "dining": {
+                "restaurant": "Mont de lans"
+            }
+        },
+        {
+            "id": "day6-jandri",
+            "date": "2025-08-22",
+            "order": 3,
+            "type": "poi",
+            "title": "Jandri - view of the glacier",
+            "icon": "fa-mountain"
+        },
+        {
+            "id": "day7-checkout-cote-brune",
+            "date": "2025-08-23",
+            "order": 1,
+            "type": "accommodation",
+            "time": "10:00",
+            "title": "Checkout Hotel Spa Cote Brune",
+            "icon": "fa-hotel"
+        },
+        {
+            "id": "day7-drive-to-dijon",
+            "date": "2025-08-23",
+            "order": 2,
+            "type": "travel",
+            "title": "Drive to Dijon",
+            "icon": "fa-car",
+            "travel": {
+                "duration": "5 hours",
+                "mode": "drive"
+            }
+        },
+        {
+            "id": "day7-checkin-dijon",
+            "date": "2025-08-23",
+            "order": 3,
+            "type": "accommodation",
+            "title": "Check-in B&B Hotel Dijon Nord Zenith",
+            "icon": "fa-hotel",
+            "accommodation": {
+                "checkInTime": "14:00",
+                "reference": "BB15030741",
+                "address": "1 Rue des Ardennes, 21000 Dijon",
+                "price": 168.00,
+                "isPaid": false,
+                "mapLink": "https://maps.app.goo.gl/R5k7w2g5Q9Vigrvx7"
+            },
+            "notes": [
+                "2 rooms, 1 night"
+            ]
+        },
+        {
+            "id": "day8-checkout-dijon",
+            "date": "2025-08-24",
+            "order": 1,
+            "type": "accommodation",
+            "time": "12:00",
+            "title": "Checkout Hotel Dijon Nord Zenith",
+            "icon": "fa-hotel"
+        },
+        {
+            "id": "day8-drive-to-calais",
+            "date": "2025-08-24",
+            "order": 2,
+            "type": "travel",
+            "time": "09:00",
+            "title": "Drive to Calais",
+            "icon": "fa-car",
+            "travel": {
+                "duration": "6 hours",
+                "distance": "600km",
+                "mode": "drive"
+            },
+            "notes": [
+                "Leave by 9:00",
+                "Break @ Reims or St Quentin"
+            ]
+        },
+        {
+            "id": "day8-ferry-return",
+            "date": "2025-08-24",
+            "order": 3,
+            "type": "travel",
+            "time": "16:50",
+            "title": "Channel Crossing",
+            "icon": "fa-train",
+            "travel": {
+                "mode": "train"
+            },
+            "notes": [
+                "Check-in 15:50",
+                "Depart Calais 16:50",
+                "Arrive Folkestone 16:25"
+            ]
+        },
+        {
+            "id": "day8-drive-to-home",
+            "date": "2025-08-24",
+            "order": 4,
+            "type": "travel",
+            "time": "16:30",
+            "title": "Drive Home",
+            "icon": "fa-car",
+            "travel": {
+                "duration": "3 hours 30 minutes",
+                "distance": "126 miles (203km)",
+                "mode": "drive"
+            },
+            "notes": [
+                "Leave by 9:00",
+                "Break @ Reims or St Quentin"
+            ]
+        },
+        {
+            "id": "day8-arrive-home",
+            "date": "2025-08-24",
+            "order": 5,
+            "type": "travel",
+            "title": "Home Sweet Home! 🎉",
+            "icon": "fa-house"
+        }
+    ]
+}

@@ -4,423 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>France Trip 2025 - Cycling Adventure</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(45deg, #2196F3, #21CBF3);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .day {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            min-height: 120px;
-        }
-
-        .day:last-child {
-            border-bottom: none;
-        }
-
-        .date-column {
-            width: 120px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .date-text {
-            transform: rotate(-90deg);
-            font-weight: bold;
-            font-size: 1.1em;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .activity-block {
-            margin-bottom: 15px;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid;
-        }
-
-        .travel {
-            background-color: #ffecb3;
-            border-left-color: #ff9800;
-        }
-
-        .activity {
-            background-color: #e8f5e8;
-            border-left-color: #4caf50;
-        }
-
-        .accommodation {
-            background-color: #e3f2fd;
-            border-left-color: #2196f3;
-        }
-
-        .icon {
-            font-size: 1.2em;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-
-        .time {
-            font-weight: bold;
-            color: #666;
-        }
-
-        .location {
-            margin-top: 8px;
-            font-size: 0.9em;
-            color: #555;
-        }
-
-        .booking-info {
-            background: #f5f5f5;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 8px;
-            font-size: 0.9em;
-        }
-
-        a {
-            color: #2196f3;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .highlight {
-            background: #fff3cd;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/main.css">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Custom JS -->
+    <script src="./js/app.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🚴‍♂️ France Cycling Adventure 2025</h1>
-            <p>August 17-24 • From Calais to the Alps and back</p>
-        </div>
-
-        <!-- Sunday 17th -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">SUN 17 AUG</div>
+    <div x-data="tripApp">
+        <!-- Loading State -->
+        <template x-if="loading">
+            <div class="d-flex justify-content-center align-items-center min-vh-100">
+                <div class="spinner-border text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
-            <div class="content">
-                <div class="activity-block travel">
-                    <span class="icon">🏠</span>
-                    <span class="time">Leave home 6:00</span>
-                </div>
-                
-                <div class="activity-block travel">
-                    <span class="icon">🚗</span>
-                    <span class="icon">⏰</span>
-                    <strong>DRIVE: 3 hours</strong>
+        </template>
+
+        <!-- Error State -->
+        <template x-if="error">
+            <div class="container mt-5">
+                <div class="alert alert-danger" x-text="error"></div>
+            </div>
+        </template>
+
+        <!-- Main Content -->
+        <template x-if="!loading && !error">
+            <div class="container">
+                <!-- Header -->
+                <div class="header">
+                    <h1 x-text="tripInfo.title"></h1>
+                    <p x-text="tripInfo.subtitle"></p>
                 </div>
 
-                <div class="activity-block travel">
-                    <span class="icon">🚢</span>
-                    <span class="time">Check-in 9:36 latest • Depart Folkestone 10:30 • Arrive Calais 12:11</span>
-                </div>
+                <!-- Days -->
+                <template x-for="date in getUniqueDates()" :key="date">
+                    <div class="day">
+                        <div class="date-column">
+                            <div class="date-text" x-text="formatDate(date)"></div>
+                        </div>
+                        <div class="content">
+                            <template x-for="activity in getDayActivities(date)" :key="activity.id">
+                                <div :class="'activity-block ' + activity.type">
+                                    <i :class="'fas ' + getActivityIcon(activity) + ' icon'"></i>
+                                    <template x-if="activity.time">
+                                        <span class="time" x-text="activity.time"></span>
+                                    </template>
+                                    <strong x-text="activity.title"></strong>
+                                    
+                                    <!-- Travel Details -->
+                                    <template x-if="activity.travel">
+                                        <div>
+                                            <template x-if="activity.travel.duration">
+                                                <div class="time" x-text="activity.travel.duration"></div>
+                                            </template>
+                                            <template x-if="activity.travel.distance">
+                                                <div class="location" x-text="activity.travel.distance"></div>
+                                            </template>
+                                        </div>
+                                    </template>
 
-                <div class="activity-block travel">
-                    <span class="icon">🚗</span>
-                    <span class="icon">⏰</span>
-                    <strong>DRIVE: ~3:40 hours</strong> (185 miles, 298km)
-                    <div class="time">Leave 12:30 - Arrive 16:30</div>
-                </div>
+                                    <!-- Accommodation Details -->
+                                    <template x-if="activity.accommodation">
+                                        <div class="booking-info">
+                                            <template x-if="activity.accommodation.reference">
+                                                <div>
+                                                    <strong>Ref:</strong>
+                                                    <span x-text="activity.accommodation.reference"></span>
+                                                </div>
+                                            </template>
+                                            <template x-if="activity.accommodation.address">
+                                                <div class="location" x-text="activity.accommodation.address"></div>
+                                            </template>
+                                            <template x-if="activity.accommodation.checkOut">
+                                                <div>
+                                                    <strong>Check-out:</strong>
+                                                    <span x-text="activity.accommodation.checkOut"></span>
+                                                </div>
+                                            </template>
+                                            <template x-if="activity.accommodation.price">
+                                                <div>
+                                                    <span class="highlight" x-text="'€' + activity.accommodation.price"></span>
+                                                    <span x-text="activity.accommodation.isPaid ? 'Paid' : 'Not paid'"></span>
+                                                    <template x-if="!activity.accommodation.isPaid && activity.accommodation.paidAmount">
+                                                        <div class="ms-2">
+                                                            <small>
+                                                                <span x-text="'€' + activity.accommodation.paidAmount + ' paid'"></span>
+                                                                <span x-text="'• €' + activity.accommodation.balanceDue + ' due'"></span>
+                                                            </small>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                            <template x-if="activity.accommodation.includes && activity.accommodation.includes.length">
+                                                <div class="mt-1">
+                                                    <template x-for="item in activity.accommodation.includes" :key="item">
+                                                        <div class="small">
+                                                            <i class="fas fa-check text-success me-1"></i>
+                                                            <span x-text="item"></span>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                            <template x-if="activity.accommodation.mapLink">
+                                                <div class="mt-2">
+                                                    <a :href="activity.accommodation.mapLink" target="_blank" class="d-inline-flex align-items-center">
+                                                        <i class="fas fa-map-marker-alt me-2"></i>
+                                                        <span>View on Maps</span>
+                                                    </a>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </template>
 
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">🗝️</span>
-                    <strong>Check-in B&B Hotel Epernay</strong>
-                    <div class="location">
-                        📍 2 Allee General Alberico Albricci, 51200 Epernay<br>
-                        <a href="https://maps.app.goo.gl/fN3LtbaQHU67GuKC7">View on Maps</a>
+                                    <!-- Cycling Details -->
+                                    <template x-if="activity.cycling">
+                                        <div>
+                                            <template x-if="activity.cycling.distance || activity.cycling.elevation">
+                                                <div class="location">
+                                                    <template x-if="activity.cycling.distance">
+                                                        <span>Distance: <span x-text="activity.cycling.distance + 'km'"></span></span>
+                                                    </template>
+                                                    <template x-if="activity.cycling.elevation">
+                                                        <span class="ms-2">• Elevation: <span x-text="activity.cycling.elevation + 'm'"></span></span>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                            <template x-if="activity.cycling.routeLinks && activity.cycling.routeLinks.length">
+                                                <div class="mt-2">
+                                                    <template x-for="link in activity.cycling.routeLinks" :key="link.url">
+                                                        <div>
+                                                            <a :href="link.url" target="_blank" class="d-inline-flex align-items-center">
+                                                                <i :class="'fab ' + link.icon + ' me-2'"></i>
+                                                                <span x-text="link.title"></span>
+                                                            </a>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </template>
+
+                                    <!-- Notes -->
+                                    <template x-if="activity.notes && activity.notes.length > 0">
+                                        <div class="mt-2">
+                                            <template x-for="note in activity.notes" :key="note">
+                                                <div class="location" x-html="formatNote(note)"></div>
+                                            </template>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
                     </div>
-                    <div class="booking-info">
-                        <strong>Ref:</strong> BB15030670 • <strong>Check-in:</strong> 2pm<br>
-                        1 room, 1 night • <span class="highlight">€156.50</span> <span style="color:green;font-weight:bold;">Paid 15/08/25</span> <br>
-                        🚴‍♂️ Bikes allowed in room
-                    </div>
-                </div>
+                </template>
             </div>
-        </div>
-
-        <!-- Monday 18th -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">MON 18 AUG</div>
-            </div>
-            <div class="content">
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">📤</span>
-                    <strong>Checkout B&B Epernay</strong>
-                    <div class="time">Before 12:00</div>
-                </div>
-
-                <div class="activity-block travel">
-                    <span class="icon">🚗</span>
-                    <span class="icon">⏰</span>
-                    <strong>DRIVE: 6-7 hours</strong>
-                    <div class="time">Leave 9:00 AM • Lunch stop 1.5hrs • Arrive Oberland 5:00 PM</div>
-                </div>
-
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">🗝️</span>
-                    <strong>Check-in Oberland</strong>
-                    <div class="location">
-                        📍 155 Av. de la Gare, 38520 Le Bourg-d'Oisans<br>
-                        <a href="https://maps.app.goo.gl/PGihD7pLFNxFH1x78">View on Maps</a>
-                    </div>
-                    <div class="booking-info">
-                        <strong>Quote:</strong> 9014 • 🍳 Breakfast included<br>
-                        <span class="highlight">€672 total</span>, Paid<br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tuesday 19th -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">TUE 19 AUG</div>
-            </div>
-            <div class="content">
-                <div class="activity-block activity">
-                    <span class="icon">🚴‍♂️</span>
-                    <span class="icon">🏔️</span>
-                    <strong>CYCLING: OZ 3300</strong>
-                    <div class="time">Start: 9:00 AM</div>
-                    <div class="location">Ride to start: 45 min</div>
-                    <div class="location">Distance: 45km • Elevation: 729m</div>
-                    <div class="location">
-                        <a href="https://uk.bike-oisans.com/equipment/the-steep-climb-to-oz-en-oisans/" target="_blank" style="display:inline-flex;align-items:center;">
-                            <i class="fa-solid fa-arrow-up-right-from-square" style="margin-right:6px;"></i>
-                            The steep climb to Oz en Oisans
-                        </a>
-                    </div>
-                    <div class="location">
-                        <a href="https://connect.garmin.com/modern/course/392650695" target="_blank" style="display:inline-flex;align-items:center;">
-                            <i class="fa-brands fa-garmin" style="color:#007cc3;margin-right:6px;"></i>
-                            Garmin Course
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Wednesday 20th -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">WED 20 AUG</div>
-            </div>
-            <div class="content">
-                <div class="activity-block activity">
-                    <span class="icon">🚴‍♂️</span>
-                    <span class="icon">🏔️</span>
-                    <strong>CYCLING: Alpe d'Huez</strong>
-                    <div class="time">Start: ?? AM</div>
-                    <div class="location">"La Monteé Mythique"</div>
-                    <div class="location">
-                        <a href="https://www.strava.com/routes/3387443945735939802" target="_blank" style="display:inline-flex;align-items:center;">
-                            <i class="fa-brands fa-strava" style="color:#fc4c02;margin-right:6px;"></i>Alpe d'Huez
-                        </a>
-                    </div>
-                    <div class="location">Distance: 30km • Elevation: 1161m</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Thursday 21st -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">THU 21 AUG</div>
-            </div>
-            <div class="content">
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">📤</span>
-                    <strong>Checkout Oberland</strong>
-                </div>
-
-                <div class="activity-block travel">
-                    <span class="icon">🚗</span>
-                    <span class="icon">⏰</span>
-                    <strong>DRIVE: 30 minutes</strong>
-                </div>
-
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">🗝️</span>
-                    <strong>Check-in Hotel Spa Cote Brune</strong>
-                    <div class="location">
-                        📍 6 rue des cotes Bruns, 38860 Les Deux Alpes<br>
-                        <a href="https://maps.app.goo.gl/GkxrqQBD1QmTxDzr5">View on Maps</a>
-                    </div>
-                    <div class="booking-info">
-                        <strong>Ref:</strong> SSRHV1 • <strong>Check-in:</strong> 3pm<br>
-                        2 nights, 1 room • 🍳 Breakfast included<br>
-                        <span class="highlight">€660 + €16.50 tax</span>, paid €198, balance €478.50
-                    </div>
-                </div>
-
-                <div class="activity-block activity">
-                    <span class="icon">🚴‍♂️</span>
-                    <span class="icon">🏔️</span>
-                    <strong>CYCLING: Les 2 Alpes</strong>
-                    <div class="time">Start: ??</div>
-                    <div class="location">"Les Deux Alpes"</div>
-                    <div class="location">Distance: 42km • Elevation: 1223m</div>
-                </div>
-                <div class="activity-block activity">
-                    <span class="icon">🍽️</span>
-                    <span class="icon">🌄</span>
-                    <strong>Venosc by cable car</strong>
-                    <div class="location">Le cours de la vie</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Friday 22nd -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">FRI 22 AUG</div>
-            </div>
-            <div class="content">
-                <div class="activity-block activity">
-                    <span class="icon">🚴‍♂️</span>
-                    <span class="icon">🏔️</span>
-                    <strong>CYCLING: Lac du Chambon</strong>
-                    <div class="location">La cabane au bord du lac Chambon</div>
-                </div>
-                <div class="activity-block activity">
-                    <span class="icon">🍽️</span>
-                    <strong>Mont de lans</strong>
-                </div>
-                <div class="activity-block activity">
-                    <span class="icon">🌄</span>
-                    <strong>Jandri - view of the glacier</strong>
-                </div>
-            </div>
-        </div>
-
-        <!-- Saturday 23rd -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">SAT 23 AUG</div>
-            </div>
-            <div class="content">
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">📤</span>
-                    <strong>Checkout Hotel Spa Cote Brune</strong>
-                    <div class="time">By 10:00 AM</div>
-                </div>
-
-                <div class="activity-block travel">
-                    <span class="icon">🚗</span>
-                    <span class="icon">⏰</span>
-                    <strong>DRIVE: 5 Hours</strong>
-                </div>
-
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">🗝️</span>
-                    <strong>Check-in B&B Hotel Dijon Nord Zenith</strong>
-                    <div class="location">
-                        📍 1 Rue des Ardennes, 21000 Dijon<br>
-                        <a href="https://maps.app.goo.gl/R5k7w2g5Q9Vigrvx7">View on Maps</a>
-                    </div>
-                    <div class="booking-info">
-                        <strong>Ref:</strong> BB15030741 • <strong>Check-in:</strong> 2pm<br>
-                        2 rooms, 1 night • <span class="highlight">€168</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sunday 24th -->
-        <div class="day">
-            <div class="date-column">
-                <div class="date-text">SUN 24 AUG</div>
-            </div>
-            <div class="content">
-                <div class="activity-block accommodation">
-                    <span class="icon">🏨</span>
-                    <span class="icon">📤</span>
-                    <strong>Checkout</strong>
-                    <div class="time">Before 12:00</div>
-                </div>
-
-                <div class="activity-block travel">
-                    <span class="icon">🚗</span>
-                    <span class="icon">⏰</span>
-                    <strong>DRIVE: 6 hours, 600km</strong>
-                    <div class="time">Leave by 9:00 • Break @ Reims or St Quentin</div>
-                </div>
-
-                <div class="activity-block travel">
-                    <span class="icon">🚢</span>
-                    <span class="time">Check-in 15:50 • Depart Calais 16:50 • Arrive Folkestone 16:25</span>
-                </div>
-
-                <div class="activity-block travel">
-                    <span class="icon">🏠</span>
-                    <strong>Home Sweet Home! 🎉</strong>
-                </div>
-            </div>
-        </div>
+        </template>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

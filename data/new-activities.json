@@ -1,0 +1,78 @@
+{
+    "activities": [
+        {
+            "id": "day1-arrive-epernay",
+            "date": "2025-08-16",
+            "order": 1,
+            "type": "travel",
+            "time": "14:00",
+            "title": "Arrive in Epernay",
+            "icon": "fa-train",
+            "travel": {
+                "duration": "4 hours",
+                "mode": "train",
+                "notes": ["TGV from Paris Est"]
+            }
+        },
+        {
+            "id": "day1-hotel-checkin",
+            "date": "2025-08-16",
+            "order": 2,
+            "type": "accommodation",
+            "time": "14:30",
+            "title": "Check-in B&B Hotel Epernay",
+            "icon": "fa-hotel",
+            "accommodation": {
+                "reference": "BB15030670",
+                "address": "2 Allee General Alberico Albricci, 51200 Epernay",
+                "checkIn": "14:00",
+                "price": 156.50,
+                "isPaid": true,
+                "notes": ["Bikes allowed in room"],
+                "mapLink": "https://maps.app.goo.gl/fN3LtbaQHU67GuKC7"
+            }
+        },
+        {
+            "id": "day2-hotel-checkout",
+            "date": "2025-08-17",
+            "order": 1,
+            "type": "accommodation",
+            "time": "09:00",
+            "title": "Checkout B&B Epernay",
+            "icon": "fa-hotel",
+            "accommodation": {
+                "reference": "BB15030670",
+                "checkOut": "12:00"
+            }
+        },
+        {
+            "id": "day2-champagne-route",
+            "date": "2025-08-17",
+            "order": 2,
+            "type": "cycling",
+            "time": "10:00",
+            "title": "Champagne Route Day 1",
+            "icon": "fa-bicycle",
+            "cycling": {
+                "distance": 65,
+                "elevation": 850,
+                "routeLinks": [
+                    {
+                        "title": "View on Strava",
+                        "url": "https://www.strava.com/routes/example",
+                        "icon": "fa-strava"
+                    },
+                    {
+                        "title": "Download GPX",
+                        "url": "routes/day1.gpx",
+                        "icon": "fa-download"
+                    }
+                ]
+            },
+            "notes": [
+                "Route through vineyards",
+                "Lunch stop in Hautvillers"
+            ]
+        }
+    ]
+}
