@@ -67,6 +67,17 @@
             "notes":[ "https://www.hotel-bb.com/en/hotel/epernay" ]
         },
         {
+            "id": "day1-dining",
+            "date": "2025-08-17",
+            "order": 5,
+            "type": "dining",
+            "title": "Grill'n'chill",
+            "icon": "fa-utensils",
+            "notes": [
+                "https://www.instagram.com/grillnchill51?igsh=MTFlZWNkbDdnbTUzdQ=="
+                ]
+        },
+        {
             "id": "day2-hotel-checkout",
             "date": "2025-08-18",
             "order": 1,
