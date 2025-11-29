@@ -2,7 +2,7 @@
     "activities": [
         {
             "id": "day1-drive-to-folkstone",
-            "date": "2025-08-17",
+            "date": "2026-08-02",
             "order": 1,
             "type": "travel",
             "time": "06:00",
@@ -15,7 +15,7 @@
         },
         {
             "id": "day1-channel-crossing",
-            "date": "2025-08-17",
+            "date": "2026-08-02",
             "order": 2,
             "type": "travel",
             "time": "10:30",
@@ -33,7 +33,7 @@
         },
         {
             "id": "day1-drive-to-epernay",
-            "date": "2025-08-17",
+            "date": "2026-08-02",
             "order": 3,
             "type": "travel",
             "time": "12:30",
@@ -49,11 +49,11 @@
         },
         {
             "id": "day1-hotel-checkin",
-            "date": "2025-08-17",
+            "date": "2026-08-02",
             "order": 4,
             "type": "accommodation",
             "time": "14:30",
-            "title": "Check-in B&B Hotel Epernay",
+            "title": "TBD",
             "icon": "fa-hotel",
             "accommodation": {
                 "reference": "BB15030670",
@@ -68,7 +68,7 @@
         },
         {
             "id": "day1-dining",
-            "date": "2025-08-17",
+            "date": "2026-08-02",
             "order": 5,
             "type": "dining",
             "title": "Grill'n'chill",
@@ -79,7 +79,7 @@
         },
         {
             "id": "day2-hotel-checkout",
-            "date": "2025-08-18",
+            "date": "2026-08-03",
             "order": 1,
             "type": "accommodation",
             "time": "12:00",
@@ -91,12 +91,12 @@
             }
         },
         {
-            "id": "day2-drive-to-oberland",
-            "date": "2025-08-18",
+            "id": "day2-drive-to-milan",
+            "date": "2026-08-03",
             "order": 2,
             "type": "travel",
             "time": "09:00",
-            "title": "Drive to Oberland",
+            "title": "Drive to Hotel de Milan",
             "icon": "fa-car",
             "travel": {
                 "duration": "6-7 hours",
@@ -105,19 +105,19 @@
             "notes": [
                 "Leave 9:00 AM",
                 "Lunch stop 1.5hrs",
-                "Arrive Oberland 5:00 PM"
+                "Arrive Milan 5:00 PM"
             ]
         },
         {
-            "id": "day2-checkin-oberland",
-            "date": "2025-08-18",
+            "id": "day2-checkin-milan",
+            "date": "2026-08-03",
             "order": 3,
             "type": "accommodation",
-            "title": "Check-in Oberland",
+            "title": "Check-in Hotel de Milan",
             "icon": "fa-hotel",
             "accommodation": {
                 "reference": "9014",
-                "address": "155 Av. de la Gare, 38520 Le Bourg-d'Oisans",
+                "address": "54 Rue du Général de Gaulle 38520 Le Bourg-d'Oisans",
                 "price": 672.00,
                 "isPaid": true,
                 "includes": ["Breakfast included"],
@@ -130,7 +130,7 @@
         },
         {
             "id": "day3-cycling-oz",
-            "date": "2025-08-19",
+            "date": "2026-08-04",
             "order": 1,
             "type": "cycling",
             "time": "09:00",
@@ -159,7 +159,7 @@
         },
         {
             "id": "day4-cycling-alpe",
-            "date": "2025-08-20",
+            "date": "2026-08-05",
             "order": 1,
             "type": "cycling",
             "title": "CYCLING: Alpe d'Huez",
@@ -181,52 +181,8 @@
             ]
         },
         {
-            "id": "day5-checkout-oberland",
-            "date": "2025-08-21",
-            "order": 1,
-            "time": "10:00",
-            "type": "accommodation",
-            "title": "Checkout Oberland",
-            "icon": "fa-hotel"
-        },
-        {
-            "id": "day5-drive-to-deux-alpes",
-            "date": "2025-08-21",
-            "order": 2,
-            "type": "travel",
-            "title": "Drive to Les Deux Alpes",
-            "icon": "fa-car",
-            "travel": {
-                "duration": "30 minutes",
-                "mode": "drive"
-            }
-        },
-        {
-            "id": "day5-checkin-cote-brune",
-            "date": "2025-08-21",
-            "order": 3,
-            "type": "accommodation",
-            "title": "Check-in Hotel Spa Cote Brune",
-            "icon": "fa-hotel",
-            "accommodation": {
-                "checkInTime": "15:00",
-                "reference": "SSRHV1",
-                "address": "6 rue des cotes Bruns, 38860 Les Deux Alpes",
-                "price": 676.50,
-                "isPaid": false,
-                "paidAmount": 198.00,
-                "balanceDue": 478.50,
-                "includes": ["Breakfast included"]
-            },
-            "notes": [
-                "2 nights, 1 room",
-                "View on Maps: https://maps.app.goo.gl/GkxrqQBD1QmTxDzr5",
-                "https://www.hotel-cotebrune.fr/en/"
-            ]
-        },
-        {
             "id": "day5-cycling-deux-alpes",
-            "date": "2025-08-21",
+            "date": "2026-08-06",
             "order": 4,
             "type": "cycling",
             "title": "CYCLING: Les 2 Alpes",
@@ -285,17 +241,17 @@
             "icon": "fa-mountain"
         },
         {
-            "id": "day7-checkout-cote-brune",
-            "date": "2025-08-23",
+            "id": "day7-checkout-hotel-milan",
+            "date": "2026-08-07",
             "order": 1,
             "type": "accommodation",
             "time": "10:00",
-            "title": "Checkout Hotel Spa Cote Brune",
+            "title": "Checkout Hotel de Milan",
             "icon": "fa-hotel"
         },
         {
             "id": "day7-drive-to-dijon",
-            "date": "2025-08-23",
+            "date": "2026-08-07",
             "order": 2,
             "type": "travel",
             "title": "Drive to Dijon",
@@ -307,7 +263,7 @@
         },
         {
             "id": "day7-checkin-dijon",
-            "date": "2025-08-23",
+            "date": "2026-08-07",
             "order": 3,
             "type": "accommodation",
             "title": "Check-in B&B Hotel Dijon Nord Zenith",
@@ -326,17 +282,17 @@
             ]
         },
         {
-            "id": "day8-checkout-dijon",
-            "date": "2025-08-24",
+            "id": "day8-checkout-milan",
+            "date": "2026-08-08",
             "order": 1,
             "type": "accommodation",
             "time": "12:00",
-            "title": "Checkout Hotel Dijon Nord Zenith",
+            "title": "Checkout Hotel de Milan",
             "icon": "fa-hotel"
         },
         {
             "id": "day8-drive-to-calais",
-            "date": "2025-08-24",
+            "date": "2026-08-08",
             "order": 2,
             "type": "travel",
             "time": "09:00",
@@ -354,7 +310,7 @@
         },
         {
             "id": "day8-ferry-return",
-            "date": "2025-08-24",
+            "date": "2026-08-08",
             "order": 3,
             "type": "travel",
             "time": "16:50",
@@ -371,7 +327,7 @@
         },
         {
             "id": "day8-drive-to-home",
-            "date": "2025-08-24",
+            "date": "2026-08-08",
             "order": 4,
             "type": "travel",
             "time": "16:30",
@@ -385,7 +341,7 @@
         },
         {
             "id": "day8-arrive-home",
-            "date": "2025-08-24",
+            "date": "2026-08-08",
             "order": 5,
             "type": "travel",
             "title": "Home Sweet Home! 🎉",
