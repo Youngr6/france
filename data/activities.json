@@ -199,7 +199,7 @@
         },
         {
             "id": "day5-venosc",
-            "date": "2025-08-21",
+            "date": "2026-08-06",
             "order": 5,
             "type": "dining",
             "title": "Venosc by cable car",
@@ -209,7 +209,7 @@
         },
         {
             "id": "day6-cycling-chambon",
-            "date": "2025-08-22",
+            "date": "2026-08-06",
             "order": 1,
             "type": "cycling",
             "title": "CYCLING: Lac du Chambon",
@@ -223,7 +223,7 @@
         },
         {
             "id": "day6-mont-de-lans",
-            "date": "2025-08-22",
+            "date": "2026-08-06",
             "order": 2,
             "type": "dining",
             "title": "Mont de lans",
@@ -234,7 +234,7 @@
         },
         {
             "id": "day6-jandri",
-            "date": "2025-08-22",
+            "date": "2026-08-06",
             "order": 3,
             "type": "poi",
             "title": "Jandri - view of the glacier",
